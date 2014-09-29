@@ -1,0 +1,190 @@
+
+body {
+	background: black;
+}
+
+.main{
+	width: 800px;
+	height: 600px;
+	margin: auto;
+	margin-top: 50px;
+	border: 1px solid lightgray;
+	background-image: url('palo.jpg');
+	background-size: 800px 600px;
+	border-radius: 15px;
+	position: relative;
+}
+
+.palopic{
+	background-image: url('palo.jpg');
+}
+
+.dhalopic {
+	background-image: url('dhalo.jpg');
+}
+
+.nilopic {
+	background-image: url('nilo.jpg');
+}
+
+.sapic {
+	background-image: url('sa.jpg');
+}
+
+.repic {
+	background-image: url('re.jpg');
+}
+
+.gapic {
+	background-image: url('ga.jpg');
+}
+
+.mapic {
+	background-image: url('ma.jpg');
+}
+
+.papic {
+	background-image: url('pa.jpg');
+}
+
+.dhapic {
+	background-image: url('dha.jpg');
+}
+
+.nipic {
+	background-image: url('ni.jpg');
+}
+
+.sahipic {
+	background-image: url('sahi.jpg');
+}
+
+.rehipic {
+	background-image: url('rehi.jpg');
+}
+
+.gahipic {
+	background-image: url('gahi.jpg');
+}
+
+.pa-lo {
+position: absolute;
+top: 104px;
+left: 597px;
+}
+
+.dha-lo {
+position: absolute;
+top: 125px;
+left: 557px;
+}
+
+.ni-lo {
+position: absolute;
+top: 148px;
+left: 512px;
+}
+
+.sa {
+position: absolute;
+top: 168px;
+left: 465px;
+}
+
+.re {
+position: absolute;
+top: 187px;
+left: 422px;
+}
+
+.ga {
+position: absolute;
+top: 194px;
+left: 403px;
+}
+
+.ma {
+position: absolute;
+top: 212px;
+left: 371px;
+}
+
+.pa {
+position: absolute;
+top: 224px;
+left: 343px;
+}
+
+.dha {
+position: absolute;
+top: 234px;
+left: 325px;
+}
+
+.ni {
+position: absolute;
+top: 245px;
+left: 303px;
+}
+
+.sa-hi {
+position: absolute;
+top: 255px;
+left: 287px;
+}
+
+.re-hi{
+position: absolute;
+top: 259px;
+left: 270px;
+}
+
+.ga-hi {
+position: absolute;
+top: 269px;
+left: 254px;
+}
+
+.note{
+	background: transparent;
+	width: 15px;
+	height: 60px;
+	/*border: 1px solid lightgray;*/
+	border-radius: 5px;
+	margin: 5px;
+	color: transparent;
+}
+
+.bowl {
+	width: 211px;
+height: 120px;
+position: absolute;
+top: 471px;
+left: 544px;
+/*border: 1px solid white;*/
+background: transparent;
+}
+
+.drone {
+	position: absolute;
+top: 350px;
+left: 203px;
+width: 60px;
+}
+
+.strings {
+	position: absolute;
+top: 380px;
+width: 40px;
+left: 144px;
+}
+
+
+
+
+
+
+
+
+
+
