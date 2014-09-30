@@ -94,60 +94,60 @@ left: 465px;
 .re {
 position: absolute;
 top: 187px;
-left: 422px;
+left: 419px;
 }
 
 .ga {
 position: absolute;
-top: 194px;
-left: 403px;
+top: 199px;
+left: 398px;
 }
 
 .ma {
 position: absolute;
-top: 212px;
-left: 371px;
+top: 215px;
+left: 364px; 
 }
 
 .pa {
 position: absolute;
-top: 224px;
-left: 343px;
+top: 233px;
+left: 338px;
 }
 
 .dha {
 position: absolute;
-top: 234px;
-left: 325px;
+top: 242px;
+left: 317px;
 }
 
 .ni {
 position: absolute;
-top: 245px;
-left: 303px;
+top: 248px;
+left: 295px;
 }
 
 .sa-hi {
 position: absolute;
 top: 255px;
-left: 287px;
+left: 275px;
 }
 
 .re-hi{
 position: absolute;
-top: 259px;
-left: 270px;
+top: 268px;
+left: 254px;
 }
 
 .ga-hi {
 position: absolute;
-top: 269px;
-left: 254px;
+top: 275px;
+left: 239px;
 }
 
 .note{
 	background: transparent;
-	width: 15px;
+	width: 19px;
 	height: 60px;
 	/*border: 1px solid lightgray;*/
 	border-radius: 5px;
@@ -167,18 +167,34 @@ background: transparent;
 
 .drone {
 	position: absolute;
-top: 350px;
-left: 203px;
-width: 60px;
+top: 300px;
+left: 143px;
+width: 90px;
 }
 
 .strings {
-	position: absolute;
-top: 380px;
-width: 40px;
-left: 144px;
+position: absolute;
+top: 350px;
+width: 90px;
+left: 44px;
 }
 
+.tabla {
+bottom: -48px;
+left: 20px;
+background: -webkit-linear-gradient(rgb(139, 115, 71),rgb(75, 73, 58));
+position: absolute;
+padding: 10px 13px;
+border-radius: 11px;
+color: white;
+}
+
+.info {
+	color: rgb(107, 95, 64);
+position: absolute;
+bottom: -44px;
+right: 50px;
+}
 
 
 

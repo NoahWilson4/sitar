@@ -1,188 +1,188 @@
 $(document).on('ready', function() {
 
-	var context = 0;
-	var compressor = 0;
-	var reverb = 0;
+	// var context = 0;
+	// var compressor = 0;
+	// var reverb = 0;
 
-	var source1 = 0;
-	var source2 = 0;
-	var source3 = 0;
+	// var source1 = 0;
+	// var source2 = 0;
+	// var source3 = 0;
 
-	var lowpassFilter = 0;
-	var waveShaper = 0;
-	var panner = 0;
+	// var lowpassFilter = 0;
+	// var waveShaper = 0;
+	// var panner = 0;
 
-	var dry1 = 0;
-	var dry2 = 0;
-	var dry3 = 0;
+	// var dry1 = 0;
+	// var dry2 = 0;
+	// var dry3 = 0;
 
-	var wet1 = 0;
-	var wet2 = 0;
-	var wet3 = 0;
+	// var wet1 = 0;
+	// var wet2 = 0;
+	// var wet3 = 0;
 
-	var masterDry = 0;
-	var masterWet = 0;
+	// var masterDry = 0;
+	// var masterWet = 0;
 
-	function setupRoutingGraph () {
-		context = new AudioContext();
+	// function setupRoutingGraph () {
+	// 	context = new AudioContext();
 
-		//CREATE EFFECTS NODES
-		lowpassFilter = context.createBiquadFilter();
-		waveShaper = context.createWaveShaper();
-		panner = context.createPanner();
-		compressor = context.createDynamicsCompressor();
-		reverb = context.createConvolver();
+	// 	//CREATE EFFECTS NODES
+	// 	lowpassFilter = context.createBiquadFilter();
+	// 	waveShaper = context.createWaveShaper();
+	// 	panner = context.createPanner();
+	// 	compressor = context.createDynamicsCompressor();
+	// 	reverb = context.createConvolver();
 
-		// CREATE MASTER WET AND DRY
-		masterDry = context.createGain();
-		masterWet = context.createGain();
+	// 	// CREATE MASTER WET AND DRY
+	// 	masterDry = context.createGain();
+	// 	masterWet = context.createGain();
 
-		//CONNECT FINAL COMPRESSOR TO FINAL DESTINATION
-		compressor.connect(context.destination);
+	// 	//CONNECT FINAL COMPRESSOR TO FINAL DESTINATION
+	// 	compressor.connect(context.destination);
 
-		//connect master dry wet to compressor
-		masterDry.connect(compressor);
-		masterWet.connect(compressor);
+	// 	//connect master dry wet to compressor
+	// 	masterDry.connect(compressor);
+	// 	masterWet.connect(compressor);
 
-		//connect reverb to master wet
-		reverb.connect(masterWet);
+	// 	//connect reverb to master wet
+	// 	reverb.connect(masterWet);
 
-		// Create a few sources.
-	    source1 = context.createOscillator();
-	    source2 = context.createOscillator();
-	    source3 = context.createOscillator();
-	    source4 = context.createOscillator();
-	    source5 = context.createOscillator();
-	    source6 = context.createOscillator();
-	    source7 = context.createOscillator();
-	    source8 = context.createOscillator();
-	    source9 = context.createOscillator();
-	    source10 = context.createOscillator();
-	    source11 = context.createOscillator();
-	    source12 = context.createOscillator();
-	    source13 = context.createOscillator();
+	// 	// Create a few sources.
+	//     source1 = context.createOscillator();
+	//     source2 = context.createOscillator();
+	//     source3 = context.createOscillator();
+	//     source4 = context.createOscillator();
+	//     source5 = context.createOscillator();
+	//     source6 = context.createOscillator();
+	//     source7 = context.createOscillator();
+	//     source8 = context.createOscillator();
+	//     source9 = context.createOscillator();
+	//     source10 = context.createOscillator();
+	//     source11 = context.createOscillator();
+	//     source12 = context.createOscillator();
+	//     source13 = context.createOscillator();
 
-	    source1.frequency.value = 324;
-	    source2.frequency.value = 341;
-	    source3.frequency.value = 384;
-	    source4.frequency.value = 432;
-	    source5.frequency.value = 486;
-	    source6.frequency.value = 512;
-	    source7.frequency.value = 576;
-	    source8.frequency.value = 658;
-	    source9.frequency.value = 683;
-	    source10.frequency.value = 768;
-	    source11.frequency.value = 864;
-	    source12.frequency.value = 972;
-	    source13.frequency.value = 1024;
+	//     source1.frequency.value = 324;
+	//     source2.frequency.value = 341;
+	//     source3.frequency.value = 384;
+	//     source4.frequency.value = 432;
+	//     source5.frequency.value = 486;
+	//     source6.frequency.value = 512;
+	//     source7.frequency.value = 576;
+	//     source8.frequency.value = 658;
+	//     source9.frequency.value = 683;
+	//     source10.frequency.value = 768;
+	//     source11.frequency.value = 864;
+	//     source12.frequency.value = 972;
+	//     source13.frequency.value = 1024;
 
-	    // Connect source1
-	    dry1 = context.createGain();
-	    wet1 = context.createGain();
-	    source1.connect(lowpassFilter);
-	    lowpassFilter.connect(dry1);
-	    lowpassFilter.connect(wet1);
-	    dry1.connect(masterDry);
-	    wet1.connect(reverb);
+	//     // Connect source1
+	//     dry1 = context.createGain();
+	//     wet1 = context.createGain();
+	//     source1.connect(lowpassFilter);
+	//     lowpassFilter.connect(dry1);
+	//     lowpassFilter.connect(wet1);
+	//     dry1.connect(masterDry);
+	//     wet1.connect(reverb);
 
-	    // Connect source2
-	    dry2 = context.createGain();
-	    wet2 = context.createGain();
-	    source2.connect(waveShaper);
-	    waveShaper.connect(dry2);
-	    waveShaper.connect(wet2);
-	    dry2.connect(masterDry);
-	    wet2.connect(reverb);
+	//     // Connect source2
+	//     dry2 = context.createGain();
+	//     wet2 = context.createGain();
+	//     source2.connect(waveShaper);
+	//     waveShaper.connect(dry2);
+	//     waveShaper.connect(wet2);
+	//     dry2.connect(masterDry);
+	//     wet2.connect(reverb);
 
-	    // Connect source3
-	    dry3 = context.createGain();
-	    wet3 = context.createGain();
-	    source3.connect(panner);
-	    panner.connect(dry3);
-	    panner.connect(wet3);
-	    dry3.connect(masterDry);
-	    wet3.connect(reverb);
+	//     // Connect source3
+	//     dry3 = context.createGain();
+	//     wet3 = context.createGain();
+	//     source3.connect(panner);
+	//     panner.connect(dry3);
+	//     panner.connect(wet3);
+	//     dry3.connect(masterDry);
+	//     wet3.connect(reverb);
 
-	    dry4 = context.createGain();
-	    wet4 = context.createGain();
-	    source4.connect(panner);
-	    panner.connect(dry4);
-	    panner.connect(wet4);
-	    dry4.connect(masterDry);
-	    wet4.connect(reverb);
+	//     dry4 = context.createGain();
+	//     wet4 = context.createGain();
+	//     source4.connect(panner);
+	//     panner.connect(dry4);
+	//     panner.connect(wet4);
+	//     dry4.connect(masterDry);
+	//     wet4.connect(reverb);
 
-	    dry5 = context.createGain();
-	    wet5 = context.createGain();
-	    source5.connect(panner);
-	    panner.connect(dry5);
-	    panner.connect(wet5);
-	    dry5.connect(masterDry);
-	    wet5.connect(reverb);
+	//     dry5 = context.createGain();
+	//     wet5 = context.createGain();
+	//     source5.connect(panner);
+	//     panner.connect(dry5);
+	//     panner.connect(wet5);
+	//     dry5.connect(masterDry);
+	//     wet5.connect(reverb);
 
-	    dry6 = context.createGain();
-	    wet6 = context.createGain();
-	    source6.connect(panner);
-	    panner.connect(dry6);
-	    panner.connect(wet6);
-	    dry6.connect(masterDry);
-	    wet6.connect(reverb);
+	//     dry6 = context.createGain();
+	//     wet6 = context.createGain();
+	//     source6.connect(panner);
+	//     panner.connect(dry6);
+	//     panner.connect(wet6);
+	//     dry6.connect(masterDry);
+	//     wet6.connect(reverb);
 
-	    dry7 = context.createGain();
-	    wet7 = context.createGain();
-	    source7.connect(panner);
-	    panner.connect(dry7);
-	    panner.connect(wet7);
-	    dry7.connect(masterDry);
-	    wet7.connect(reverb);
+	//     dry7 = context.createGain();
+	//     wet7 = context.createGain();
+	//     source7.connect(panner);
+	//     panner.connect(dry7);
+	//     panner.connect(wet7);
+	//     dry7.connect(masterDry);
+	//     wet7.connect(reverb);
 
-	    dry8 = context.createGain();
-	    wet8 = context.createGain();
-	    source8.connect(panner);
-	    panner.connect(dry8);
-	    panner.connect(wet8);
-	    dry8.connect(masterDry);
-	    wet8.connect(reverb);
+	//     dry8 = context.createGain();
+	//     wet8 = context.createGain();
+	//     source8.connect(panner);
+	//     panner.connect(dry8);
+	//     panner.connect(wet8);
+	//     dry8.connect(masterDry);
+	//     wet8.connect(reverb);
 
-	    dry9 = context.createGain();
-	    wet9 = context.createGain();
-	    source9.connect(panner);
-	    panner.connect(dry9);
-	    panner.connect(wet9);
-	    dry9.connect(masterDry);
-	    wet9.connect(reverb);
+	//     dry9 = context.createGain();
+	//     wet9 = context.createGain();
+	//     source9.connect(panner);
+	//     panner.connect(dry9);
+	//     panner.connect(wet9);
+	//     dry9.connect(masterDry);
+	//     wet9.connect(reverb);
 
-	    dry10 = context.createGain();
-	    wet10 = context.createGain();
-	    source10.connect(panner);
-	    panner.connect(dry10);
-	    panner.connect(wet10);
-	    dry10.connect(masterDry);
-	    wet10.connect(reverb);
+	//     dry10 = context.createGain();
+	//     wet10 = context.createGain();
+	//     source10.connect(panner);
+	//     panner.connect(dry10);
+	//     panner.connect(wet10);
+	//     dry10.connect(masterDry);
+	//     wet10.connect(reverb);
 
-	    dry11 = context.createGain();
-	    wet11 = context.createGain();
-	    source11.connect(panner);
-	    panner.connect(dry11);
-	    panner.connect(wet11);
-	    dry11.connect(masterDry);
-	    wet11.connect(reverb);
+	//     dry11 = context.createGain();
+	//     wet11 = context.createGain();
+	//     source11.connect(panner);
+	//     panner.connect(dry11);
+	//     panner.connect(wet11);
+	//     dry11.connect(masterDry);
+	//     wet11.connect(reverb);
 
-	    dry12 = context.createGain();
-	    wet12 = context.createGain();
-	    source12.connect(panner);
-	    panner.connect(dry12);
-	    panner.connect(wet12);
-	    dry12.connect(masterDry);
-	    wet12.connect(reverb);
+	//     dry12 = context.createGain();
+	//     wet12 = context.createGain();
+	//     source12.connect(panner);
+	//     panner.connect(dry12);
+	//     panner.connect(wet12);
+	//     dry12.connect(masterDry);
+	//     wet12.connect(reverb);
 
-	    dry13 = context.createGain();
-	    wet13 = context.createGain();
-	    source13.connect(panner);
-	    panner.connect(dry13);
-	    panner.connect(wet13);
-	    dry13.connect(masterDry);
-	    wet13.connect(reverb);
-	};
+	//     dry13 = context.createGain();
+	//     wet13 = context.createGain();
+	//     source13.connect(panner);
+	//     panner.connect(dry13);
+	//     panner.connect(wet13);
+	//     dry13.connect(masterDry);
+	//     wet13.connect(reverb);
+	// };
 	    // Start the sources now.
 	
 	    var droneleftrev = document.createElement('audio');
@@ -190,10 +190,11 @@ $(document).on('ready', function() {
 			        droneleftrev.setAttribute('autoplay', 'autoplay');
 			        droneleftrev.load();
 			        $.get();
-					droneleftrev.play();
+					droneleftrev.play(0);
+					droneleftrev.loop = true;
 					droneleftrev.loopStart = 0;
 					droneleftrev.LoopEnd = 41;
-					droneleftrev.loop = true;
+					
 
 
 		var dronerightrev = document.createElement('audio');
@@ -201,20 +202,22 @@ $(document).on('ready', function() {
 			        dronerightrev.setAttribute('autoplay', 'autoplay');
 			        dronerightrev.load()
 			        $.get();
-		            dronerightrev.play();
+		            dronerightrev.play(0);
+		            dronerightrev.loop = true;
 					dronerightrev.loopStart = 0;
 					dronerightrev.LoopEnd = 37;
-					dronerightrev.loop = true;
+					
 
 		var dronecenter = document.createElement('audio');
 			        dronecenter.setAttribute('src', 'dronecenter.mp3');
 			        dronecenter.setAttribute('autoplay', 'autoplay');
 			        dronecenter.load()
 			        $.get();
-		            dronecenter.play();
+		            dronecenter.play(0);
+		            dronecenter.loop = true;
 					dronecenter.loopStart = 0;
-					dronecenter.LoopEnd = 37;
-					dronecenter.loop = true;
+					dronecenter.LoopEnd = 153;
+					
 
 
 		var palo1 = document.createElement('audio');
@@ -362,7 +365,39 @@ $(document).on('ready', function() {
 					bowl.load();
 					$.get();
 
+		var tablagroove = document.createElement('audio');
+			        tablagroove.setAttribute('src', 'tablagroove.mp3');
+			        tablagroove.load();
+			        $.get();
+					// tablagroove.play();
+					// tablagroove.loopStart = 0;
+					// tablagroove.LoopEnd = 29;
+					tablagroove.loop = true; 
+
+	var tablaplay = $('<div class="tabla play">Tabla Groove</div>');
+	var tablastop = $('<div class="tabla stop">Tabla Stop</div>');
+
+	$('.main').append(tablaplay);
+	$('.main').append(tablastop);
+	$(tablastop).hide();
+
 	var prevClass = 'palopic';
+
+	
+    $(document).on('click', '.play', function(){
+    		tablagroove.load();
+			        $.get();
+		tablagroove.play();
+		$(tablaplay).hide();
+		$(tablastop).show();
+		tablagroove.loop = true;
+	})
+
+	$(document).on('click', '.stop', function(){
+		$(tablastop).hide();
+		$(tablaplay).show();
+		tablagroove.loop = false;
+	})
 
 	var paloPluck = true;
     $(document).on('mouseover', '.pa-lo', function(){
